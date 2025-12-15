@@ -3,13 +3,15 @@ package service;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Scanner;
+
 import model.*;
 
-// FriefindSystem.java
+
 public class FriefindSystem {
    
     private ArrayList<User> userList;
-    private HashSet<Integer> userIdSet; // ID'lerin benzersiz olmasını garanti eder
+    private HashSet<Integer> userIdSet; 
 
     public FriefindSystem() {
         this.userList = new ArrayList<>();
@@ -37,11 +39,45 @@ public class FriefindSystem {
             for (User u : userList) {
                 System.out.print(u); 
                 System.out.print(" -> ");
-                u.showProfileType(); // Abstract metodun implementasyonu çalışır
+                u.showProfileType(); 
             }
         }
     }
 
+    public Meeting setMeeting(User U1,User U2, Location location) {
+        Scanner scanner = new Scanner(System.in);
+        
+        
+        Activity activity = new Activity();
+
+        
+        activity.getInput(); 
+
+        System.out.print("Enter meeting time (e.g., 09/09/2025): ");
+        String time = scanner.nextLine();
+        Meeting meeting = new Meeting(U1, U2, location, activity, time);
+
+      
+        System.out.println("\n--- Meeting Created Successfully ---");
+        System.out.println(meeting.toString()); 
+
+       
+        System.out.print("\nDo you want to change the time? (Y/N): ");
+        String choice = scanner.nextLine();
+
+        if (choice.equalsIgnoreCase("Y")) {
+            System.out.print("Enter new time: ");
+            String newTime = scanner.nextLine();
+            meeting.setTime(newTime);
+            
+            System.out.println("\nTime updated.");
+            System.out.println("Updated Meeting Details:");
+            System.out.println(meeting.toString());
+        } else {
+            System.out.println("Meeting confirmed.");
+        }
+        return meeting;
+    }
  
     public User searchUser(String name) {
         for (User u : userList) {

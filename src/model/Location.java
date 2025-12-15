@@ -23,4 +23,9 @@ public class Location {
     public String toString() {
         return city + " [" + latitude + ", " + longitude + "]";
     }
+
+
+	public String getCity() {
+		return city;
+	}
 }
