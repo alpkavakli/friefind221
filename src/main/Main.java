@@ -2,6 +2,7 @@ package main;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import GUI.FriefindAuth;
 import model.*;
 import service.*;
 
@@ -9,7 +10,7 @@ import service.*;
 public class Main {
  public static void main(String[] args) throws FileNotFoundException {
     
-	 FriefindSystem.readTxt();
+	 /*FriefindSystem.readTxt();
 
      User.displayTotalUserCount(); 
 
@@ -35,7 +36,10 @@ public class Main {
     	 }
      }
     
-     FriefindSystem.displayAllUsers();
+     FriefindSystem.displayAllUsers();*/
+     
+     FriefindAuth frame = new FriefindAuth();
+     frame.setVisible(true);
      
      
  }

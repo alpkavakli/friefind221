@@ -9,7 +9,6 @@ public abstract class User implements Matchable {
  protected String name;
  protected int age;
  protected String city;
- 
  protected ProfileDetails details; 
 
  public static int totalUsers = 0;

@@ -6,7 +6,7 @@ import model.StandardUser;
 import model.User;
 
 public class SubscriptionManager implements SubscriptionService {
-
+	
 	public void upgradeToPremium(User user) {
         if (user instanceof PremiumUser) {
             System.out.println(user.getName() + " is already a Premium user.");
