@@ -80,6 +80,18 @@ public class FriefindSystem {
 			}
 		}
 	}
+	public static String displayAllUsersString() {
+	    String s = "\n--- All Friefind Users ---\n";
+	    if (userList.isEmpty()) {
+	        s += "No users found.\n";
+	    } else {
+	        for (User u : userList) {
+	            s += u.toString() + "\n";
+	        }
+	    }
+	    return s;
+	}
+
 
 	public static Meeting setMeeting(User U1, User U2, Location location) {
 		Scanner scanner = new Scanner(System.in);
@@ -123,6 +135,14 @@ public class FriefindSystem {
 		return null;
 	}
 
+	public static User searchUser(int id) {
+	    for (User u : userList) {
+	        if (u.getId() == id) return u;
+	    }
+	    return null;
+	}
+
+	
 	public static void deleteUser(int id) {
 		Iterator<User> iterator = userList.iterator();
 		while (iterator.hasNext()) {
@@ -150,6 +170,15 @@ public class FriefindSystem {
 		double avg = (double) sum / userList.size();
 		System.out.println("Average Age of Users: " + String.format("%.2f", avg));
 	}
+	
+	public static double calculateAverageAgeValue() {
+	    if (userList.isEmpty()) return 0.0;
+
+	    int sum = 0;
+	    for (User u : userList) sum += u.getAge();
+	    return (double) sum / userList.size();
+	}
+
 	
 	public static User createNewUser() {
 	    Scanner sc = new Scanner(System.in);
@@ -197,4 +226,9 @@ public class FriefindSystem {
 	    
 	    return newUser;
 	}
+	public static ArrayList<User> getUsers() {
+	    return userList;
+	}
+
+	
 }
